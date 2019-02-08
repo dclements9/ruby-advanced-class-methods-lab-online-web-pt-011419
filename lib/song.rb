@@ -61,7 +61,7 @@ class Song
     song
   end
 
-  def parsefilename
+  def self.parsefilename
     name_split = name.split(" - ")
     artist = name_split[0]
     title = name_split[1].chomp(".mp3")
