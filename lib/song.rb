@@ -49,9 +49,10 @@ class Song
     song
   end
   def self.create_from_filename(name)
-    name_split = name.split(" - ")
-    artist = name_split[0]
-    title = name_split[1].chomp(".mp3")
+    parsefilename
+    # name_split = name.split(" - ")
+    # artist = name_split[0]
+    # title = name_split[1].chomp(".mp3")
     #title.slice!(-4,4)
 
     song = self.create
@@ -59,6 +60,13 @@ class Song
     song.name = title
     song
   end
+
+  def parsefilename
+    name_split = name.split(" - ")
+    artist = name_split[0]
+    title = name_split[1].chomp(".mp3")
+  end
+
   def self.destroy_all
       self.all.clear
   end
